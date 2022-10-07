@@ -14,11 +14,13 @@ param solutionName string = 'todo-app-${uniqueString(resourceGroup().id)}'
 @description('The Azure region into which the resources should be deployed.')
 param location string = 'westeurope'
 
+@secure
 @description('The administrator login username for the SQL server.')
-param sqlServerAdministratorLogin string = 'sqladmin'
+param sqlServerAdministratorLogin string
 
+@secure
 @description('The administrator login password for the SQL server.')
-param sqlServerAdministratorPassword string = 'HboIEvent2022!'
+param sqlServerAdministratorPassword string
 
 var appServicePlanName = '${environmentName}-${solutionName}-plan'
 var appServiceAppName = '${environmentName}-${solutionName}-app'
